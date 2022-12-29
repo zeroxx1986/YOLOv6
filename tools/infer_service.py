@@ -28,7 +28,7 @@ def upload_file():
         f.write(data)
     # img_array = np.asarray(data, dtype=np.uint8)
     # imgdecoded = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    inferer = Inferer(f'/home/YOLOv6/{name}.jpg', '/home/YOLOv6/yolov6n_base.pt', '0', 'data/coco.yaml', [640,480], False)
+    inferer = Inferer(f'/home/YOLOv6/{name}.jpg', '/home/YOLOv6/yolov6n_base.pt', None, 'data/coco.yaml', [640,480], False)
     inferer.infer(0.4, 0.45, [0], False, 1000, '/home/YOLOv6/runs/inference/exp', True, True, False, False, False)
 
     with open(f'/home/YOLOv6/runs/inference/exp/{name}.txt', 'r') as f:
