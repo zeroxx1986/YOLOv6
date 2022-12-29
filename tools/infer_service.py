@@ -12,7 +12,7 @@ if str(ROOT) not in sys.path:
 
 from yolov6.core.inferer import Inferer
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 # from cStringIO import StringIO
 # import cv2
 # import numpy as np
