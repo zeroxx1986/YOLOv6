@@ -35,7 +35,7 @@ def upload_file():
     return jsonify(ret)
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(host='0.0.0.0', port=5000, debug = True)
 
 # inferer = Inferer(source, weights, device, yaml, img_size, half)
 # inferer.infer(conf_thres, iou_thres, classes, agnostic_nms, max_det, save_dir, save_txt, not not_save_img, hide_labels, hide_conf, view_img)
