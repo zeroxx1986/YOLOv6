@@ -4,6 +4,7 @@
 # import time
 # from infer import run
 import os
+import sys
 
 ROOT = os.getcwd()
 if str(ROOT) not in sys.path:
