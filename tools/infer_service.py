@@ -3,8 +3,14 @@
 
 # import time
 # from infer import run
+import os
+
+ROOT = os.getcwd()
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))
 
 from yolov6.core.inferer import Inferer
+
 from flask import Flask, jsonify
 # from cStringIO import StringIO
 # import cv2
