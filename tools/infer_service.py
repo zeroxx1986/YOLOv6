@@ -31,12 +31,14 @@ def upload_file():
     inferer = Inferer(f'/home/YOLOv6/{name}.jpg', '/home/YOLOv6/yolov6n_base.pt', None, 'data/coco.yaml', [640,480], False)
     inferer.infer(0.4, 0.45, [0], False, 1000, '/home/YOLOv6/runs/inference/exp', True, True, False, False, False)
 
-    with open(f'/home/YOLOv6/runs/inference/exp/{name}.txt', 'r') as f:
-        ret = f.readlines()
-
+    if os.path.exists(f'/home/YOLOv6/runs/inference/exp/{name}.txt'):
+        with open(f'/home/YOLOv6/runs/inference/exp/{name}.txt', 'r') as f:
+            ret = f.readlines()
+        os.remove(f'/home/YOLOv6/runs/inference/exp/{name}.txt')
+    else:
+        ret = []
     os.remove(f'/home/YOLOv6/{name}.jpg')
-    os.remove(f'/home/YOLOv6/runs/inference/exp/{name}.txt')
-
+    
     return jsonify(ret)
 
 if __name__ == '__main__':
