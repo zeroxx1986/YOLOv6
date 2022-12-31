@@ -37,6 +37,10 @@ def upload_file():
         os.remove(f'/home/YOLOv6/runs/inference/exp/{name}.txt')
     else:
         ret = []
+    try:
+        os.remove(f'/home/YOLOv6/runs/inference/exp/{name}.jpg')
+    except:
+        pass
     os.remove(f'/home/YOLOv6/{name}.jpg')
     
     return jsonify(ret)
